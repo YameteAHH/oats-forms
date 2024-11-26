@@ -11,6 +11,7 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   late final GlobalKey<FormState> formKey;
+  bool isChecked = false;
 
   @override
   void initState() {
@@ -28,7 +29,24 @@ class _WelcomePageState extends State<WelcomePage> {
           children: [
             _buildHeaderSection(),
             _buildAnimatedMessage(),
-            _buildGetStartedButton(context),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Checkbox(
+                  value: isChecked,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked = value!;
+                    });
+                  },
+                ),
+                const Text(
+                  'I am an OLOPSC Alumni',
+                  style: TextStyle(fontSize: 18),
+                )
+              ],
+            ),
+            if (isChecked == true) _buildGetStartedButton(context),
           ],
         ),
       ),
