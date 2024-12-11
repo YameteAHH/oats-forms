@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class QuestionCard extends StatelessWidget {
-  final String question;
+class AnswerCard extends StatelessWidget {
+  final String answer;
 
-  const QuestionCard({
+  const AnswerCard({
     Key? key,
-    required this.question,
+    required this.answer,
   }) : super(key: key);
 
   @override
@@ -23,15 +23,16 @@ class QuestionCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
+          SizedBox(height: 8),
           Text(
-            question,
+            answer.isNotEmpty ? answer : 'No response',
             style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[700],
-              fontWeight: FontWeight.w600,
+              fontSize: 15,
+              color: answer.isNotEmpty ? Colors.black : Colors.grey,
+              fontStyle: answer.isEmpty ? FontStyle.italic : FontStyle.normal,
             ),
           ),
-          SizedBox(height: 8),
         ],
       ),
     );

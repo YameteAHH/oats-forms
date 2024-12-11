@@ -21,6 +21,7 @@ const _navBarItems = [
       color: const Color.fromRGBO(255, 210, 49, 1),
     ),
     label: 'Profile',
+
   ),
   BottomNavigationBarItem(
     icon: Icon(
@@ -34,6 +35,7 @@ const _navBarItems = [
     label: 'About',
   ),
 ];
+
 
 class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
@@ -65,6 +67,12 @@ class _NavigationPageState extends State<NavigationPage> {
               backgroundColor: const Color.fromRGBO(11, 10, 95, 1),
               unselectedItemColor: const Color.fromRGBO(255, 210, 49, 1),
               selectedItemColor: const Color.fromRGBO(255, 210, 49, 1),
+              selectedLabelStyle: const TextStyle(
+                fontSize: 15
+              ),
+              unselectedLabelStyle: const TextStyle(
+                fontSize: 15
+              ),
               items: _navBarItems,
               currentIndex: _selectedIndex,
               onTap: (int index) {
@@ -124,7 +132,8 @@ class _NavigationPageState extends State<NavigationPage> {
                       label: Text(
                         item.label!,
                         style: TextStyle(
-                            color: const Color.fromRGBO(255, 210, 49, 1)),
+                            color: const Color.fromRGBO(255, 210, 49, 1),
+                            fontSize: 15),
                       )))
                   .toList(),
             ),
